@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departments - Northern University Bangladesh</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1> Northern University Bangladesh </h1>
+            <button class="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mainNav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="departments.html" class="active">Departments</a></li>
+                    <li><a href="students.html">Students</a></li>
+                    <li><a href="faculties.html">Faculties</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="library.html">Library</a></li>
+                    <li><a href="cafeteria.html">Cafeteria</a></li>
+                    <li><a href="admission.html">Online Admission</a></li> </ul>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="departments" class="data-section">
+            <h2>Our Departments</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Department ID</th>
+                            <th>Department Name</th>
+                            <th>Head of Department</th>
+                            <th>No. of Students</th>
+                            <th>No. of Faculties</th>
+                        </tr>
+                    </thead>
+                    <tbody id="departmentTableBody">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 University Management System. All rights reserved.</p>
+            <p class="shk">DEVELOP BY RAIYAN SHK</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Call the specific render function for this page
+        document.addEventListener('DOMContentLoaded', () => {
+            renderDepartments(); // This function will be defined in script.js
+            // Set active class for nav link
+            document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+            document.querySelector('nav a[href="departments.html"]').classList.add('active');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculties - Northern University Bangladesh</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1> Northern University Bangladesh </h1>
+            <button class="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mainNav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="departments.html">Departments</a></li>
+                    <li><a href="students.html">Students</a></li>
+                    <li><a href="faculties.html" class="active">Faculties</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="library.html">Library</a></li>
+                    <li><a href="cafeteria.html">Cafeteria</a></li>
+                    <li><a href="admission.html">Online Admission</a></li> </ul>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="faculties" class="data-section">
+            <h2>Our Faculties</h2>
+            <div class="filter-controls">
+                <label for="facultyDeptFilter">Filter by Department:</label>
+                <select id="facultyDeptFilter"></select>
+                <label for="facultySearch">Search by ID or Name:</label>
+                <input type="text" id="facultySearch" placeholder="Search faculties...">
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Faculty ID</th>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Designation</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody id="facultyTableBody">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 University Management System. All rights reserved.</p>
+            <p class="shk">DEVELOP BY RAIYAN SHK</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            populateFacultyDepartmentFilters();
+            renderFaculties();
+            document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+            document.querySelector('nav a[href="faculties.html"]').classList.add('active');
+        });
+    </script>
+</body>
+</html>

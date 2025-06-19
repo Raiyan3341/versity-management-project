@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Courses - University Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Northern University Bangladesh</h1>
+            <button class="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mainNav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="departments.html">Departments</a></li>
+                    <li><a href="students.html">Students</a></li>
+                    <li><a href="faculties.html">Faculties</a></li>
+                    <li><a href="courses.html" class="active">Courses</a></li>
+                    <li><a href="library.html">Library</a></li>
+                    <li><a href="cafeteria.html">Cafeteria</a></li>
+                    <li><a href="admission.html">Admission</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="courses">
+            <h2>Our Courses</h2>
+
+            <div class="filter-section course-filters">
+                <div class="filter-group">
+                    <label for="courseDeptFilter">Filter by Department:</label>
+                    <select id="courseDeptFilter" class="form-control"></select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="courseSemesterFilter">Filter by Semester:</label>
+                    <select id="courseSemesterFilter" class="form-control"></select>
+                </div>
+
+                <div class="search-group">
+                    <label for="courseSearch">Search Courses:</label>
+                    <input type="text" id="courseSearch" class="form-control" placeholder="Search by Code or Title">
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Course Code</th>
+                            <th>Title</th>
+                            <th>Department</th>
+                            <th>Semester</th> <th>Credits</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="courseTableBody">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 University Management System. All rights reserved.</p>
+            <p class="shk">DEVELOP BY RAIYAN SHK</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Populate filters and render table on page load
+            window.populateCourseDepartmentFilters();
+            window.populateCourseSemesterFilters(); // NEW call
+            window.renderCourses();
+
+            // Highlight active nav link
+            document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+            const coursesLink = document.querySelector('nav a[href="courses.html"]');
+            if (coursesLink) coursesLink.classList.add('active');
+        });
+    </script>
+</body>
+</html>

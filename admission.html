@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Admission - Northern University Bangladesh</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1> Northern University Bangladesh </h1>
+            <button class="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mainNav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="departments.html">Departments</a></li>
+                    <li><a href="students.html">Students</a></li>
+                    <li><a href="faculties.html">Faculties</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="library.html">Library</a></li>
+                    <li><a href="cafeteria.html">Cafeteria</a></li>
+                    <li><a href="admission.html">Online Admission</a></li> </ul>
+                   
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="online-admission" class="data-section">
+            <h2>Online Admission Form</h2>
+            <p style="text-align: center; margin-bottom: 25px; color: #666;">Please fill out the form below to apply for admission.</p>
+
+            <form id="admissionForm" class="admission-form">
+                <div class="form-group">
+                    <label for="studentName">Full Name:</label>
+                    <input type="text" id="studentName" name="studentName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentAddress">Address:</label>
+                    <textarea id="studentAddress" name="studentAddress" rows="3" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentPhone">Phone Number:</label>
+                    <input type="tel" id="studentPhone" name="studentPhone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentEmail">Email Address:</label>
+                    <input type="email" id="studentEmail" name="studentEmail" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="hscResult">HSC/A-Level Result (GPA/Grade):</label>
+                    <input type="text" id="hscResult" name="hscResult" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="sscResult">SSC/O-Level Result (GPA/Grade):</label>
+                    <input type="text" id="sscResult" name="sscResult" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="departmentChoice">Preferred Department:</label>
+                    <select id="departmentChoice" name="departmentChoice" required>
+                        <option value="">Select a Department</option>
+                        </select>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="submit-button">Submit Application</button>
+                </div>
+
+                <div id="submissionMessage" class="submission-message" style="display: none;"></div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 University Management System. All rights reserved.</p>
+            <p class="shk">DEVELOP BY RAIYAN SHK</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Populate department choices in the form
+            const departmentChoice = document.getElementById('departmentChoice');
+            if (departmentChoice) {
+                // departmentsData is from script.js
+                departmentsData.forEach(dept => {
+                    const option = document.createElement('option');
+                    option.value = dept.name;
+                    option.textContent = dept.name;
+                    departmentChoice.appendChild(option);
+                });
+            }
+
+            // Handle form submission
+            const admissionForm = document.getElementById('admissionForm');
+            const submissionMessage = document.getElementById('submissionMessage');
+
+            if (admissionForm && submissionMessage) {
+                admissionForm.addEventListener('submit', function(event) {
+                    event.preventDefault(); // Prevent default form submission
+
+                    // In a real application, you would send this data to a server.
+                    // For now, we'll just show a success message.
+
+                    submissionMessage.style.display = 'block';
+                    submissionMessage.className = 'submission-message success';
+                    submissionMessage.textContent = 'Application submitted successfully! We will contact you shortly.';
+
+                    admissionForm.reset(); // Clear the form fields
+                    
+                    // Hide message after some time
+                    setTimeout(() => {
+                        submissionMessage.style.display = 'none';
+                    }, 5000); 
+                });
+            }
+
+            // Set active class for nav link
+            document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+            document.querySelector('nav a[href="admission.html"]').classList.add('active');
+        });
+    </script>
+</body>
+</html>
