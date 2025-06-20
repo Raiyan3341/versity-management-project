@@ -428,6 +428,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const selectedSection = studentSectionFilter.value;
         const searchTerm = studentSearch.value.toLowerCase();
 
+        // Only show if any filter is not 'all' or search is not empty
+        const showTable = selectedDept !== 'all' || selectedSemester !== 'all' || selectedSection !== 'all' || searchTerm.length > 0;
+        if (!showTable) return;
+
         const filteredStudents = studentsData.filter(student => {
             const matchesDepartment = selectedDept === 'all' || student.department === selectedDept;
             const matchesSemester = selectedSemester === 'all' || student.semester.toString() === selectedSemester;
@@ -490,6 +494,10 @@ document.addEventListener('DOMContentLoaded', () => {
         facultyTableBody.innerHTML = '';
         const selectedDept = facultyDeptFilter.value;
         const searchTerm = facultySearch.value.toLowerCase();
+
+        // Only show if filter is not 'all' or search is not empty
+        const showTable = selectedDept !== 'all' || searchTerm.length > 0;
+        if (!showTable) return;
 
         const filteredFaculties = facultiesData.filter(faculty => {
             const matchesDepartment = selectedDept === 'all' || faculty.department === selectedDept;
@@ -563,6 +571,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const selectedSemester = courseSemesterFilter.value; // NEW
         const searchTerm = courseSearch.value.toLowerCase();
 
+        // Only show if any filter is not 'all' or search is not empty
+        const showTable = selectedDept !== 'all' || selectedSemester !== 'all' || searchTerm.length > 0;
+        if (!showTable) return;
+
         const filteredCourses = coursesData.filter(course => {
             const matchesDepartment = selectedDept === 'all' || course.department === selectedDept;
             // NEW: Check for semester match (convert to string for comparison)
@@ -605,6 +617,10 @@ document.addEventListener('DOMContentLoaded', () => {
         libraryTableBody.innerHTML = '';
         const searchTerm = bookSearch.value.toLowerCase();
         const availabilityFilter = bookAvailabilityFilter.value;
+
+        // Only show if filter is not 'all' or search is not empty
+        const showTable = availabilityFilter !== 'all' || searchTerm.length > 0;
+        if (!showTable) return;
 
         const filteredBooks = libraryData.filter(book => {
             const matchesSearch = book.id.toLowerCase().includes(searchTerm) ||
@@ -664,6 +680,10 @@ document.addEventListener('DOMContentLoaded', () => {
         cafeteriaTableBody.innerHTML = '';
         const selectedCategory = menuCategoryFilter.value;
         const searchTerm = menuSearch.value.toLowerCase();
+
+        // Only show if filter is not 'all' or search is not empty
+        const showTable = selectedCategory !== 'all' || searchTerm.length > 0;
+        if (!showTable) return;
 
         const filteredMenu = cafeteriaData.filter(item => {
             const matchesCategory = selectedCategory === 'all' || item.category === selectedCategory;
