@@ -34,14 +34,18 @@
     <main class="container">
         <section id="cafeteria" class="data-section">
             <h2>Cafeteria Menu</h2>
-            <div class="filter-controls">
-                <label for="menuCategoryFilter">Filter by Category:</label>
-                <select id="menuCategoryFilter"></select>
-                <label for="menuSearch">Search by ID or Name:</label>
-                <input type="text" id="menuSearch" placeholder="Search menu items...">
+            <div class="filter-section cafeteria-filters">
+                <div class="filter-group">
+                    <label for="menuCategoryFilter">Filter by Category:</label>
+                    <select id="menuCategoryFilter" class="form-control"></select>
+                </div>
+                <div class="search-group">
+                    <label for="menuSearch">Search Menu Items:</label>
+                    <input type="text" id="menuSearch" class="form-control" placeholder="Search by ID or Name">
+                </div>
             </div>
             <div class="table-container">
-                <table>
+                <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>Item ID</th>
@@ -51,7 +55,7 @@
                         </tr>
                     </thead>
                     <tbody id="cafeteriaTableBody">
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
         </section>

@@ -34,18 +34,22 @@
     <main class="container">
         <section id="library" class="data-section">
             <h2>Library Books</h2>
-            <div class="filter-controls">
-                <label for="bookAvailabilityFilter">Filter by Availability:</label>
-                <select id="bookAvailabilityFilter">
-                    <option value="all">All</option>
-                    <option value="available">Available</option>
-                    <option value="unavailable">Unavailable</option>
-                </select>
-                <label for="bookSearch">Search by ID, Title, or Author:</label>
-                <input type="text" id="bookSearch" placeholder="Search books...">
+            <div class="filter-section library-filters">
+                <div class="filter-group">
+                    <label for="bookAvailabilityFilter">Filter by Availability:</label>
+                    <select id="bookAvailabilityFilter" class="form-control">
+                        <option value="all">All</option>
+                        <option value="available">Available</option>
+                        <option value="unavailable">Unavailable</option>
+                    </select>
+                </div>
+                <div class="search-group">
+                    <label for="bookSearch">Search Books:</label>
+                    <input type="text" id="bookSearch" class="form-control" placeholder="Search by ID, Title, or Author">
+                </div>
             </div>
             <div class="table-container">
-                <table>
+                <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>Book ID</th>
@@ -56,7 +60,7 @@
                         </tr>
                     </thead>
                     <tbody id="libraryTableBody">
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
         </section>

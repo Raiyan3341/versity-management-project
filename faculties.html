@@ -34,14 +34,18 @@
     <main class="container">
         <section id="faculties" class="data-section">
             <h2>Our Faculties</h2>
-            <div class="filter-controls">
-                <label for="facultyDeptFilter">Filter by Department:</label>
-                <select id="facultyDeptFilter"></select>
-                <label for="facultySearch">Search by ID or Name:</label>
-                <input type="text" id="facultySearch" placeholder="Search faculties...">
+            <div class="filter-section faculty-filters">
+                <div class="filter-group">
+                    <label for="facultyDeptFilter">Filter by Department:</label>
+                    <select id="facultyDeptFilter" class="form-control"></select>
+                </div>
+                <div class="search-group">
+                    <label for="facultySearch">Search Faculties:</label>
+                    <input type="text" id="facultySearch" class="form-control" placeholder="Search by ID or Name">
+                </div>
             </div>
             <div class="table-container">
-                <table>
+                <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>Faculty ID</th>
@@ -52,7 +56,7 @@
                         </tr>
                     </thead>
                     <tbody id="facultyTableBody">
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
         </section>
